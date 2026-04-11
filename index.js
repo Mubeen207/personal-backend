@@ -1,4 +1,3 @@
-
 import express from "express";
 import cors from "cors";
 // import mongoose from "./db/index.js";
@@ -25,8 +24,6 @@ app.put("/todo/:id", async (req, res) => {
     res.status(400).json({ message: "Invalid ID or Data" });
   }
 });
-
-
 
 app.listen(5000, () => {
   console.log("Server Started at http://localhost:5000");
