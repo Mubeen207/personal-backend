@@ -61,27 +61,11 @@ import cors from "cors";
 // import mongoose from "./db/index.js";
 import "dotenv/config";
 import router from "./routes/index.js";
-// import todoSchema from "./schema/index.js"
 const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-// const Todo = mongoose.model("Todo", todoSchema);
-
 app.use("/api", router);
-
-app.post("/todo", async (req, res) => {
-  try {
-    const newTodo = new Todo({ title: req.body.title });
-    const savedTodo = await newTodo.save();
-
-    res
-      .status(201)
-      .json({ message: "Todo Added Successfully!", data: savedTodo });
-  } catch (error) {
-    res.status(400).json({ message: "Error saving todo" });
-  }
-});
 
 app.put("/todo/:id", async (req, res) => {
   try {
