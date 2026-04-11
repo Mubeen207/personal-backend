@@ -58,27 +58,17 @@
 // });
 import express from "express";
 import cors from "cors";
-import mongoose from "./db/index.js";
+// import mongoose from "./db/index.js";
 import "dotenv/config";
-import todoSchema from "./schema/index.js"
+import router from "./routes/index.js";
+// import todoSchema from "./schema/index.js"
 const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
 
-const Todo = mongoose.model("Todo", todoSchema);
+// const Todo = mongoose.model("Todo", todoSchema);
 
-app.get("/", (req, res) => {
-  res.send({ message: "Home Page" });
-});
-
-app.get("/todos", async (req, res) => {
-  try {
-    const todos = await Todo.find();
-    res.json(todos);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
+app.use("/api", router);
 
 app.post("/todo", async (req, res) => {
   try {
@@ -122,3 +112,5 @@ app.delete("/todo/:id", async (req, res) => {
 app.listen(5000, () => {
   console.log("Server Started at http://localhost:5000");
 });
+
+export default app;
