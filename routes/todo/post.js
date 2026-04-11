@@ -1,10 +1,10 @@
-import {todoSchema} from "../../schema/index.js";
+import { todoSchema } from "../../schema/index.js";
 import mongoose from "../../db/index.js";
 const postTodo = async (req, res) => {
   const Todo = mongoose.model("Todo", todoSchema);
   try {
-    const { title } = req.body;
-    const newTodo = new Todo({ title: title });
+    const { title, email } = req.body;
+    const newTodo = new Todo({ title: title, email: email });
     const savedTodo = await newTodo.save();
     res.status(201).send({
       message: "Todo Added Successfuly",
