@@ -58,16 +58,12 @@
 // });
 import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
+import mongoose from "./db/index.js";
 import "dotenv/config";
 const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
-const uri = process.env.MONGO_URI;
-mongoose
-  .connect(uri)
-  .then(() => console.log("MongoDB Connected..."))
-  .catch((err) => console.log("Connection Error", err.message));
+// const mongoose = mongoos;
 const todoSchema = new mongoose.Schema(
   {
     title: { type: String, required: true },
