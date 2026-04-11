@@ -1,4 +1,4 @@
-import todoSchema from "../../schema/index.js";
+import {todoSchema} from "../../schema/index.js";
 import mongoose from "../../db/index.js";
 
 const deleteTodo = async (req, res) => {

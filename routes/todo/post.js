@@ -1,4 +1,4 @@
-import todoSchema from "../../schema/index.js";
+import {todoSchema} from "../../schema/index.js";
 import mongoose from "../../db/index.js";
 const postTodo = async (req, res) => {
   const Todo = mongoose.model("Todo", todoSchema);
