@@ -60,18 +60,10 @@ import express from "express";
 import cors from "cors";
 import mongoose from "./db/index.js";
 import "dotenv/config";
+import todoSchema from "./schema/index.js"
 const app = express();
 app.use(cors({ origin: "*" }));
 app.use(express.json());
-// const mongoose = mongoos;
-const todoSchema = new mongoose.Schema(
-  {
-    title: { type: String, required: true },
-    description: String,
-    completed: { type: Boolean, default: false },
-  },
-  { timestamps: true },
-);
 
 const Todo = mongoose.model("Todo", todoSchema);
 
