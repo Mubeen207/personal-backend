@@ -3,7 +3,7 @@ import cors from "cors";
 import "dotenv/config";
 import router from "./routes/index.js";
 const app = express();
-app.use(cors({ origin: "*" }));
+app.use(cors({ origin: "*" })); 
 app.use(express.json());
 app.use("/api", router);
 
