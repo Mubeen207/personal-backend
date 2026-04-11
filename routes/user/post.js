@@ -1,8 +1,8 @@
-import {userSchema} from "../../schema/index.js";
+import { userSchema } from "../../schema/index.js";
 import mongoose from "../../db/index.js";
 
 const postUser = async (req, res) => {
- const Users = mongoose.model("Users", userSchema);
+  const Users = mongoose.model("Users", userSchema);
   try {
     const { name, email, password } = req.body;
     const newUser = new Users({ name, email, password });
